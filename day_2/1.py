@@ -1,7 +1,7 @@
 from collections import defaultdict
 
 from models.board import StrBoard, create_str_board, get_coords_around, get_coords_around_cross
-from parasers.input_parser import InputParser
+from parsers.input_parser import InputParser
 
 test_mode = False
 

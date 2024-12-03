@@ -1,6 +1,6 @@
 import re
 
-from parasers.input_parser import InputParser
+from parsers.input_parser import InputParser
 
 test_mode = False
 
