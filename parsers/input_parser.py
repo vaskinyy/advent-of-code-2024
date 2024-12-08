@@ -35,3 +35,10 @@ class InputParser:
     def get_board(self) -> StrBoard:
         return self.test_board if self.test_mode else self.full_board
 
+    def get_board_set(self):
+        board_set = set()
+        board = self.get_board()
+        for i in range(board.height):
+            for j in range(board.width):
+                board_set.add((i, j))
+        return board_set
