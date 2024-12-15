@@ -4,7 +4,7 @@ from models.board import build_board, StrBoard
 
 
 class InputParser:
-    def __init__(self, test_mode: bool = True):
+    def __init__(self, test_mode: bool = True, strip=True):
         self.test_input_lines = None
         self.full_input_lines = None
 
@@ -12,15 +12,23 @@ class InputParser:
         self.full_board = None
 
         self.test_mode = test_mode
+        self.strip = strip
 
     def parse(self):
         if os.path.exists('test_input.txt'):
             with open('test_input.txt', 'r') as f:
-                self.test_input_lines = [item.strip() for item in f.readlines() if item.strip()]
+
+                if self.strip:
+                    self.test_input_lines = [item.strip() for item in f.readlines() if item.strip()]
+                else:
+                    self.test_input_lines = [item.strip() for item in f.readlines()]
 
         if os.path.exists('full_input.txt'):
             with open('full_input.txt', 'r') as f:
-                self.full_input_lines = [item.strip() for item in f.readlines() if item.strip()]
+                if self.strip:
+                    self.full_input_lines = [item.strip() for item in f.readlines() if item.strip()]
+                else:
+                    self.full_input_lines = [item.strip() for item in f.readlines()]
 
     def build_boards(self):
         if self.test_input_lines:
